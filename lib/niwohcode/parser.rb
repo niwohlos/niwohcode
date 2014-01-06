@@ -7,8 +7,6 @@ class Parser
   Treetop.load(File.expand_path(File.join(File.dirname(__FILE__), 'niwohcode_parser.treetop')))
   @@parser = NiwohcodeParserParser.new
 
-  # Parse an input string and return a Ruby array like:
-  # [:this, :is, [:a, :test]]
   def self.parse(data)
     tree = @@parser.parse(data)
 
@@ -21,8 +19,6 @@ class Parser
     # of essentially useless nodes
     self.clean_tree(tree)
 
-    # Convert the AST into an array representation of the input
-    # structure and return it
     return tree
   end
 
