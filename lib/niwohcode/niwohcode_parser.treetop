@@ -1,17 +1,25 @@
 grammar NiwohcodeParser
-  rule statement
-    space? ( removeniwoh ) space? linebreak? <Statement>
+  rule block
+    (comment / statement)+ <Block>
   end
 
-  rule block
-    (comment / statement)+ space? linebreak? <Block>
+  rule statement
+    space? ( removeniwoh / clicirequires ) space? <Statement>
   end
 
   # Begin and end program identifiers
   rule removeniwoh
      space? 'REMOVENIWOH' space? linebreak?
         block
-     space? 'ADDNIWOH' space? <ProgramIdentifier>
+     space? 'ADDNIWOH' space? <Block>
+  end
+
+  rule clicirequires
+    space? 'CLICI REQUIRES' space string <Require>
+  end
+
+  rule string
+        '"' ([^"\\] / "\\" . )* '"' <StringLiteral>
   end
 
   rule space

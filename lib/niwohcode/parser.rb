@@ -23,7 +23,7 @@ class Parser
 
     # Convert the AST into an array representation of the input
     # structure and return it
-    return tree.to_array
+    return tree
   end
 
   private
