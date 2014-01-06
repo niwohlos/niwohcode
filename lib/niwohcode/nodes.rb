@@ -32,6 +32,24 @@ module NiwohcodeParser
   class Body < Treetop::Runtime::SyntaxNode
     def to_array
       return self.elements.map {|x| x.to_array}
-      end
+    end
+  end
+
+  class Block < Treetop::Runtime::SyntaxNode
+    def to_array
+      return self.elements.map {|x| x.to_array}
+    end
+  end
+
+  class Statement < Treetop::Runtime::SyntaxNode
+    def to_array
+      return self.elements.map {|x| x.to_array}
+    end
+  end
+
+  class ProgramIdentifier < Treetop::Runtime::SyntaxNode
+    def to_array
+      return self.elements.map {|x| x.to_array}
+    end
   end
 end

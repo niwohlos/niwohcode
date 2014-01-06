@@ -1,10 +1,25 @@
 grammar NiwohcodeParser
+  rule statement
+    space? ( removeniwoh ) space? linebreak? <Statement>
+  end
+
+  rule block
+    (comment / statement)+ space? linebreak? <Block>
+  end
+
+  # Begin and end program identifiers
+  rule removeniwoh
+     space? 'REMOVENIWOH' space? linebreak?
+        block
+     space? 'ADDNIWOH' space? <ProgramIdentifier>
+  end
+
   rule space
     [\s]+
   end
 
   rule comment
-      '#' [^"\n"]* ( "\n" / end_of_file )
+     '#' [^"\n"]* ( "\n" / end_of_file )
   end
 
   rule linebreak
