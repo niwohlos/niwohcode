@@ -1,0 +1,17 @@
+grammar NiwohcodeParser
+  rule space
+    [\s]+
+  end
+
+  rule comment
+      '#' [^"\n"]* ( "\n" / end_of_file )
+  end
+
+  rule linebreak
+     [\n]+
+  end
+
+  rule end_of_file
+      !.
+  end
+end

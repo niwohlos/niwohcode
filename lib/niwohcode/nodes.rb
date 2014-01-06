@@ -1,4 +1,4 @@
-module Niwohcode
+module NiwohcodeParser
   class IntegerLiteral < Treetop::Runtime::SyntaxNode
     def to_array
       return self.text_value.to_i
